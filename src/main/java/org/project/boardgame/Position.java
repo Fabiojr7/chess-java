@@ -1,4 +1,4 @@
-package boardgame;
+package org.project.boardgame;
 
 public class Position {
 
