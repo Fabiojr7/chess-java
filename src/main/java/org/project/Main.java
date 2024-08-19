@@ -2,10 +2,13 @@ package org.project;
 
 import org.project.boardgame.Board;
 import org.project.boardgame.Position;
+import org.project.chess.ChessException;
 import org.project.chess.ChessMatch;
 import org.project.chess.ChessPiece;
 import org.project.chess.ChessPosition;
 
+import java.util.InputMismatchException;
+import java.util.MissingFormatArgumentException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -17,16 +20,25 @@ public class Main {
         ChessMatch chessMatch = new ChessMatch();
 
         while(true) {
-            UI.printBoard(chessMatch.getPieces());
-            System.out.println();
-            System.out.println("Source: ");
-            ChessPosition sourcePosition = UI.readChessPosition(sc);
+            try {
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces());
+                System.out.println();
+                System.out.print("Source: ");
+                ChessPosition sourcePosition = UI.readChessPosition(sc);
 
-            System.out.println();
-            System.out.println("Target: ");
-            ChessPosition targetPosition = UI.readChessPosition(sc);
+                System.out.println();
+                System.out.print("Target: ");
+                ChessPosition targetPosition = UI.readChessPosition(sc);
 
-            ChessPiece capturePiece = chessMatch.performChessMove(sourcePosition,targetPosition);
+                ChessPiece capturePiece = chessMatch.performChessMove(sourcePosition, targetPosition);
+            }catch(ChessException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }catch (InputMismatchException e){
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
         }
 
     }
