@@ -1,7 +1,9 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
+mainClassName = 'org.project.Main'
 group = 'org.project'
 version = '1.0-SNAPSHOT'
 
