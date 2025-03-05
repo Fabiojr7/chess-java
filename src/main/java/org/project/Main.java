@@ -1,5 +1,7 @@
 package org.project;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.project.boardgame.Board;
 import org.project.boardgame.Position;
 import org.project.chess.ChessException;
@@ -18,11 +20,12 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
+        List<ChessPiece> captured = new ArrayList<>();
 
         while(true) {
             try {
                 UI.clearScreen();
-                UI.printMatch(chessMatch);
+                UI.printMatch(chessMatch, captured);
                 System.out.println();
                 System.out.print("Source: ");
                 ChessPosition sourcePosition = UI.readChessPosition(sc);
@@ -36,6 +39,10 @@ public class Main {
                 ChessPosition targetPosition = UI.readChessPosition(sc);
 
                 ChessPiece capturePiece = chessMatch.performChessMove(sourcePosition, targetPosition);
+
+                if (capturePiece != null) {
+                    captured.add(capturePiece);
+                }
             }catch(ChessException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
