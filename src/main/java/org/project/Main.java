@@ -40,10 +40,7 @@ public class Main {
         if (capturePiece != null) {
           captured.add(capturePiece);
         }
-      } catch (ChessException e) {
-        System.out.println(e.getMessage());
-        sc.nextLine();
-      } catch (InputMismatchException e) {
+      } catch (ChessException | InputMismatchException e) {
         System.out.println(e.getMessage());
         sc.nextLine();
       }

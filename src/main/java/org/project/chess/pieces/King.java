@@ -25,54 +25,54 @@ public class King extends ChessPiece {
     public boolean[][] possibleMoves() {
         boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
-        Position position = new Position(0,0);
+        Position movePosition = new Position(0,0);
 
         //above
-        position.setValues(position.getRow() - 1, position.getColumn());
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn());
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // below
-        position.setValues(position.getRow() + 1, position.getColumn());
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn());
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // left
-        position.setValues(position.getRow(), position.getColumn() - 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow(), position.getColumn() - 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // right
-        position.setValues(position.getRow(), position.getColumn() + 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow(), position.getColumn() + 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // nw
-        position.setValues(position.getRow() - 1, position.getColumn() - 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() - 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // ne
-        position.setValues(position.getRow() - 1, position.getColumn() + 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() - 1, position.getColumn() + 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // sw
-        position.setValues(position.getRow() + 1, position.getColumn() - 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() - 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         // se
-        position.setValues(position.getRow() + 1, position.getColumn() + 1);
-        if(getBoard().positionExists(position) && canMove(position)) {
-            mat[position.getRow()][position.getColumn()] = true;
+        movePosition.setValues(position.getRow() + 1, position.getColumn() + 1);
+        if(getBoard().positionExists(movePosition) && canMove(movePosition)) {
+            mat[movePosition.getRow()][movePosition.getColumn()] = true;
         }
 
         return mat;

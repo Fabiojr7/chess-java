@@ -24,7 +24,6 @@ public class ChessMatch {
     board = new Board(8, 8);
     turn = 1;
     currentPlayer = Color.WHITE;
-    check = false;
     initialSetup();
   }
 
@@ -104,7 +103,7 @@ public class ChessMatch {
 
     if (capturedPiece != null) {
       board.placePiece(capturedPiece, target);
-      capturedPieces.add(capturedPiece);
+      capturedPieces.remove(capturedPiece);
       piecesOnTheBoard.add(capturedPiece);
     }
   }
@@ -123,7 +122,7 @@ public class ChessMatch {
 
 
   private void validateTargetPosition(Position source, Position target) {
-    if (!board.piece(source).possibleMoves(target)) {
+    if (!board.piece(source).possibleMove(target)) {
       throw new ChessException("The chosen piece can't move to target position");
     }
 
